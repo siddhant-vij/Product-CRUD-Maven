@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>productcrud</artifactId>
+    <groupId>com.product</groupId>
+    <version>1.0</version>
+  </parent>
+
+  <groupId>com.product</groupId>
+  <artifactId>productenvs</artifactId>
+
+  <name>productenvs</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <build.profile.id>dev</build.profile.id>
+      </properties>
+      <build>
+        <resources>
+          <resource>
+            <directory>src/main/profiles/dev</directory>
+          </resource>
+        </resources>
+      </build>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+    <profile>
+      <id>test</id>
+      <properties>
+        <build.profile.id>test</build.profile.id>
+      </properties>
+      <build>
+        <resources>
+          <resource>
+            <directory>src/main/profiles/test</directory>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+    <profile>
+      <id>prod</id>
+      <properties>
+        <build.profile.id>prod</build.profile.id>
+      </properties>
+      <build>
+        <resources>
+          <resource>
+            <directory>src/main/profiles/prod</directory>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+  </profiles>
+</project>
